@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="c_background">#181715</color>
+    <color name="c_surface">#181715</color>
+    <color name="c_on_surface">#FAF9F5</color>
+    <color name="c_surface_variant">#2A2825</color>
+    <color name="c_on_surface_variant">#B5B1A9</color>
+    <color name="c_outline">#7A776F</color>
+    <color name="c_outline_variant">#3A3733</color>
+
+    <color name="c_primary">#E9A58C</color>
+    <color name="c_on_primary">#4A1F10</color>
+    <color name="c_primary_container">#5A3324</color>
+    <color name="c_on_primary_container">#F3E1D9</color>
+    <color name="c_primary_inverse">#A9583E</color>
+    <color name="c_secondary">#D9B8A8</color>
+    <color name="c_secondary_container">#2F2C28</color>
+    <color name="c_on_secondary_container">#E6DFD8</color>
+
+    <color name="c_error">#F0908C</color>
+    <color name="c_on_error">#601410</color>
+    <color name="c_error_container">#5C2B29</color>
+    <color name="c_on_error_container">#F9DEDC</color>
+
+    <color name="status_success">#8FD3A0</color>
+    <color name="status_success_container">#1F3A28</color>
+
+    <color name="nav_surface">#2A2825</color>
+    <color name="nav_stroke">#3A3733</color>
+    <color name="nav_active">#FFFFFF</color>
+    <color name="nav_inactive">#B3FFFFFF</color>
+    <color name="nav_indicator">#73000000</color>
+
+    <color name="hero">#6E3321</color>
+    <color name="hero_decor_a">#66CC785C</color>
+    <color name="hero_decor_b">#40CC785C</color>
+    <color name="hero_decor_c">#E8A55A</color>
+    <color name="ghost_on_hero">#33FFFFFF</color>
+    <color name="on_hero_muted">#D9FFFFFF</color>
+    <color name="c_card">#252320</color>
+    <color name="tint_teal">#1F3A34</color>
+    <color name="tint_teal_deep">#7FD1BE</color>
+    <color name="tint_amber">#3F2F17</color>
+    <color name="tint_amber_deep">#F0B968</color>
+    <color name="tint_sky">#1E3342</color>
+    <color name="tint_sky_deep">#8FC3E0</color>
+    <color name="tint_sage">#28351F</color>
+    <color name="tint_sage_deep">#A9CF95</color>
+    <color name="nav_on_dark_inactive">#A09D96</color>
+
+    <color name="glass_tint">#59000000</color>
+    <color name="glass_stroke">#33FFFFFF</color>
+    <color name="glass_rim_top">#55FFFFFF</color>
+    <color name="glass_rim_bottom">#11FFFFFF</color>
+</resources>

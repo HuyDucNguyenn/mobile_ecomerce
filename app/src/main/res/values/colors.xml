@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="c_background">#E8E3DB</color>
+    <color name="c_surface">#E8E3DB</color>
+    <color name="c_on_surface">#141413</color>
+    <color name="c_surface_variant">#DFD8CC</color>
+    <color name="c_on_surface_variant">#5E5C56</color>
+    <color name="c_outline">#8E8B82</color>
+    <color name="c_outline_variant">#E6DFD8</color>
+
+    <color name="c_primary">#A9583E</color>
+    <color name="c_on_primary">#FFFFFF</color>
+    <color name="c_primary_container">#F3E1D9</color>
+    <color name="c_on_primary_container">#4A2314</color>
+    <color name="c_primary_inverse">#E9A58C</color>
+    <color name="c_secondary">#7B5E52</color>
+    <color name="c_secondary_container">#F5F0E8</color>
+    <color name="c_on_secondary_container">#3D3D3A</color>
+
+    <color name="c_error">#BA3B3B</color>
+    <color name="c_on_error">#FFFFFF</color>
+    <color name="c_error_container">#F9DEDC</color>
+    <color name="c_on_error_container">#410E0B</color>
+
+    <color name="status_success">#25683A</color>
+    <color name="status_success_container">#E3F1E6</color>
+
+    <color name="nav_surface">#FFFFFF</color>
+    <color name="nav_stroke">#E6DFD8</color>
+    <color name="nav_active">#FFFFFF</color>
+    <color name="nav_inactive">#99141413</color>
+    <color name="nav_indicator">#D9A9583E</color>
+
+    <color name="hero">#A9583E</color>
+    <color name="hero_decor_a">#8CCC785C</color>
+    <color name="hero_decor_b">#59CC785C</color>
+    <color name="hero_decor_c">#E8A55A</color>
+    <color name="ghost_on_hero">#33FFFFFF</color>
+    <color name="on_hero_muted">#D9FFFFFF</color>
+    <color name="c_card">#FFFFFF</color>
+    <color name="tint_teal">#DCEFEA</color>
+    <color name="tint_teal_deep">#2F7F6F</color>
+    <color name="tint_amber">#FBEBD3</color>
+    <color name="tint_amber_deep">#A8680F</color>
+    <color name="tint_sky">#DDEBF3</color>
+    <color name="tint_sky_deep">#3C7596</color>
+    <color name="tint_sage">#E3EEDB</color>
+    <color name="tint_sage_deep">#4F7A3F</color>
+    <color name="nav_on_dark_inactive">#A09D96</color>
+
+    <color name="glass_tint">#85FFFFFF</color>
+    <color name="glass_stroke">#33141413</color>
+    <color name="glass_rim_top">#CCFFFFFF</color>
+    <color name="glass_rim_bottom">#33FFFFFF</color>
+</resources>

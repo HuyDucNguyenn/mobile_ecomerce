@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <LinearLayout
+        android:id="@+id/glassSource"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="112dp"
+        android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.HeroCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/tint_amber">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-80dp"
+                android:layout_marginEnd="-60dp"
+                android:alpha="0.35"
+                android:background="@drawable/bg_decor_c"
+                android:backgroundTint="@color/tint_amber_deep" />
+
+            <LinearLayout
+                android:id="@+id/heroContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="24dp">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/topAppBarCart"
+                    style="@style/Widget.App.Toolbar.Transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="-6dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:navigationIcon="@drawable/ic_back_circle"
+                    app:navigationIconTint="@null" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/overline_shop"
+                    android:textAppearance="@style/TextAppearance.App.Overline" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cart_title"
+                    android:textAppearance="@style/TextAppearance.App.Headline"
+                    android:textSize="34sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ListView
+        android:id="@+id/listViewCart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingVertical="12dp"
+        android:scrollbars="none" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="@color/hero"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-60dp"
+                android:layout_marginEnd="-30dp"
+                android:background="@drawable/bg_decor_a" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvTotalPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cart_total_zero"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPlaceOrder"
+                    style="@style/Widget.App.Button.OnHero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/cart_place_order" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackFromCart"
+                    style="@style/Widget.App.Button.OutlineOnHero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/cart_continue" />
+            </LinearLayout>
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="12dp" />
+</FrameLayout>
