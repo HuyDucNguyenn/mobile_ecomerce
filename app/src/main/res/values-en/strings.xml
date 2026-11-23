@@ -96,7 +96,14 @@
     <string name="add_to_cart_desc">Add to cart</string>
     <string name="filter_chip">Results for “%1$s”</string>
     <string name="products_empty">No products found</string>
-    <string name="view_cart">View cart</string>
     <string name="shop_now">Shop now</string>
     <string name="photo_credits">Copyright: Duc Huy and Duy Nhat from HCM-UTE</string>
+    <string name="cart_empty_title">Your cart is empty</string>
+    <string name="cart_empty_message">Explore products and add something you like.</string>
+    <string name="order_submitting">Placing your order…</string>
+    <string name="order_view_history">View order history</string>
+    <string name="order_retry_title">Could not place your order</string>
+    <string name="order_retry_message">Your items are still in the cart. You can try again.</string>
+    <string name="order_retry">Try again</string>
+    <string name="view_cart">View cart</string>
 </resources>
