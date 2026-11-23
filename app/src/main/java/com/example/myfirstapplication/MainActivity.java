@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.TextView;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
@@ -34,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
     private ProductAdapter adapter;
     private String currentQuery = "";
     private boolean loaded = false;
-    private View progressProducts, tvEmptyProducts;
+    private boolean loadFailed;
+    private View progressProducts;
+    private View productState;
+    private TextView tvEmptyProducts;
+    private Button btnProductState;
     private Chip chipFilter;
 
     @Override
@@ -47,8 +53,13 @@ public class MainActivity extends AppCompatActivity {
         checkUserLogin();
         initViews();
         setupTopAppBar();
-        loadDataFromFirestore();
         checkAndSeedSampleProducts();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadDataFromFirestore();
     }
 
     private void checkUserLogin() {
@@ -62,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
         listView = findViewById(R.id.listView);
         progressProducts = findViewById(R.id.progressProducts);
+        productState = findViewById(R.id.productState);
+        btnProductState = findViewById(R.id.btnProductState);
+        btnProductState.setOnClickListener(v -> {
+            if (loadFailed) {
+                loadDataFromFirestore();
+            } else {
+                currentQuery = "";
+                filterProducts(currentQuery);
+            }
+        });
         tvEmptyProducts = findViewById(R.id.tvEmptyProducts);
         chipFilter = findViewById(R.id.chipFilter);
         chipFilter.setOnClickListener(v -> showSearchDialog());
@@ -149,19 +170,33 @@ public class MainActivity extends AppCompatActivity {
         boolean filtering = !currentQuery.trim().isEmpty();
         chipFilter.setVisibility(filtering ? View.VISIBLE : View.GONE);
         if (filtering) chipFilter.setText(getString(R.string.filter_chip, currentQuery.trim()));
+        boolean empty = adapter.getCount() == 0;
         progressProducts.setVisibility(loaded ? View.GONE : View.VISIBLE);
-        tvEmptyProducts.setVisibility(loaded && adapter.getCount() == 0 ? View.VISIBLE : View.GONE);
+        productState.setVisibility(loadFailed || (loaded && empty) ? View.VISIBLE : View.GONE);
+        listView.setVisibility(empty || loadFailed ? View.INVISIBLE : View.VISIBLE);
+        int message = R.string.catalog_empty;
+        if (loadFailed) {
+            message = R.string.catalog_load_failed;
+        } else if (filtering) {
+            message = R.string.products_empty;
+        }
+        tvEmptyProducts.setText(message);
+        btnProductState.setText(loadFailed ? R.string.catalog_retry : R.string.search_clear);
+        btnProductState.setVisibility(loadFailed || filtering ? View.VISIBLE : View.GONE);
     }
 
     private void loadDataFromFirestore() {
+        loaded = false;
+        loadFailed = false;
+        updateStateViews();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection(COLLECTION_PRODUCTS)
-                .addSnapshotListener((value, error) -> {
+                .addSnapshotListener(this, (value, error) -> {
                     if (error != null) {
                         loaded = true;
+                        loadFailed = true;
                         updateStateViews();
-                        Toast.makeText(this, getString(R.string.load_error, error.getMessage()), Toast.LENGTH_SHORT).show();
                         return;
                     }
 

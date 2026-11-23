@@ -108,4 +108,7 @@
     <string name="order_retry_message">Các sản phẩm vẫn còn trong giỏ. Bạn có thể thử lại.</string>
     <string name="order_retry">Thử lại</string>
     <string name="view_cart">Xem giỏ</string>
+    <string name="catalog_load_failed">Chưa thể tải sản phẩm</string>
+    <string name="catalog_empty">Danh mục chưa có sản phẩm</string>
+    <string name="catalog_retry">Thử lại</string>
 </resources>

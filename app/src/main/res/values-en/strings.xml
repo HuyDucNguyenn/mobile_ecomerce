@@ -106,4 +106,7 @@
     <string name="order_retry_message">Your items are still in the cart. You can try again.</string>
     <string name="order_retry">Try again</string>
     <string name="view_cart">View cart</string>
+    <string name="catalog_load_failed">Could not load products</string>
+    <string name="catalog_empty">No products in the catalog yet</string>
+    <string name="catalog_retry">Try again</string>
 </resources>

@@ -84,6 +84,9 @@
                     android:layout_marginTop="8dp"
                     android:visibility="gone"
                     app:chipBackgroundColor="@color/c_card"
+                    android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    app:ensureMinTouchTargetSize="true"
                     app:closeIconVisible="true" />
             </LinearLayout>
         </FrameLayout>
@@ -104,16 +107,34 @@
             android:paddingBottom="120dp"
             android:scrollbars="none" />
 
-        <TextView
-            android:id="@+id/tvEmptyProducts"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/productState"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:text="@string/products_empty"
-            android:textAppearance="?attr/textAppearanceBodyLarge"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:visibility="gone" />
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="96dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvEmptyProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnSurface" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProductState"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minHeight="48dp" />
+        </LinearLayout>
     </FrameLayout>
     </LinearLayout>
 
