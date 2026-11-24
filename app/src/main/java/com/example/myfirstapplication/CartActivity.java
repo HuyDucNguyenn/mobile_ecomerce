@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -71,7 +74,11 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void setupActionButtons() {
-        btnBackFromCart.setOnClickListener(v -> finish());
+        btnBackFromCart.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+            finish();
+        });
         btnPlaceOrder.setOnClickListener(v -> placeOrder());
     }
 
@@ -90,16 +97,20 @@ public class CartActivity extends AppCompatActivity {
                 cartList.add(new CartItem(id, name, price, image, qty));
                 currentTotal += price * qty;
             } while (cursor.moveToNext());
-            cursor.close();
         }
+        if (cursor != null) cursor.close();
 
         tvTotalPrice.setText(getString(R.string.cart_total, currentTotal));
+        boolean empty = cartList.isEmpty();
+        findViewById(R.id.emptyCart).setVisibility(empty ? View.VISIBLE : View.GONE);
+        listViewCart.setVisibility(empty ? View.GONE : View.VISIBLE);
+        tvTotalPrice.setVisibility(empty ? View.GONE : View.VISIBLE);
+        btnPlaceOrder.setVisibility(empty ? View.GONE : View.VISIBLE);
         adapter.notifyDataSetChanged();
     }
 
     private void placeOrder() {
-        if (cartList == null || cartList.isEmpty()) {
-            Toast.makeText(this, getString(R.string.cart_empty_toast), Toast.LENGTH_SHORT).show();
+        if (cartList.isEmpty() || !btnPlaceOrder.isEnabled()) {
             return;
         }
 
@@ -122,23 +133,40 @@ public class CartActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         btnPlaceOrder.setEnabled(false);
+        AlertDialog submitting = new MaterialAlertDialogBuilder(this)
+                .setMessage(R.string.order_submitting)
+                .setCancelable(false)
+                .show();
 
         db.collection(COLLECTION_ORDERS)
                 .add(newOrder)
                 .addOnSuccessListener(documentReference -> {
-                    btnPlaceOrder.setEnabled(true);
-
                     dbHelper.clearCart();
+                    if (isDestroyed() || isFinishing()) return;
+                    submitting.dismiss();
+                    btnPlaceOrder.setEnabled(true);
                     loadCartData();
 
-                    Toast.makeText(CartActivity.this, getString(R.string.order_success), Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(CartActivity.this, OrderHistoryActivity.class);
-                    startActivity(intent);
+                    new MaterialAlertDialogBuilder(this)
+                            .setTitle(R.string.order_success)
+                            .setMessage(getString(R.string.cart_total, newOrder.getTotalPrice()))
+                            .setPositiveButton(R.string.order_view_history, (dialog, which) -> {
+                                startActivity(new Intent(this, OrderHistoryActivity.class));
+                                finish();
+                            })
+                            .setNegativeButton(android.R.string.ok, null)
+                            .show();
                 })
-                .addOnFailureListener(e -> {
+                .addOnFailureListener(error -> {
+                    if (isDestroyed() || isFinishing()) return;
+                    submitting.dismiss();
                     btnPlaceOrder.setEnabled(true);
-                    Toast.makeText(CartActivity.this, getString(R.string.order_error, e.getMessage()), Toast.LENGTH_SHORT).show();
+                    new MaterialAlertDialogBuilder(this)
+                            .setTitle(R.string.order_retry_title)
+                            .setMessage(R.string.order_retry_message)
+                            .setPositiveButton(R.string.order_retry, (dialog, which) -> placeOrder())
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                 });
     }
 }

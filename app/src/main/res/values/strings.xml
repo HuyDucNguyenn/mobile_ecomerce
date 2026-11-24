@@ -97,8 +97,18 @@
     <string name="add_to_cart_desc">Thêm vào giỏ hàng</string>
     <string name="filter_chip">Kết quả cho “%1$s”</string>
     <string name="products_empty">Không tìm thấy sản phẩm</string>
-    <string name="view_cart">Xem giỏ</string>
     <string name="shop_now">Mua sắm ngay</string>
     <string name="photo_credits">Bản quyền thuộc: Đức Huy và Duy Nhất from HCM-UTE</string>
     <string name="image_credits">Ảnh sản phẩm là ảnh minh họa từ Wikimedia Commons. Chuột: Hayden Schiff (CC BY 4.0); bàn phím: Anirban Saha (CC BY-SA 4.0); iPad: ajay_suresh (CC BY 2.0); tai nghe: RPSkokie (CC BY-SA 4.0); MacBook: KKPCW (CC BY-SA 4.0); đồng hồ: Crew (CC0); iPhone 15 và iPhone 15 Pro: Ka Kit Pang (CC BY-SA 4.0); Galaxy S24: Ganesh Mohan T (CC BY-SA 4.0); Galaxy S24 Ultra: Raboe001 (CC BY-SA 3.0 DE); điện thoại khác: Dinkun Chen (CC BY-SA 4.0).</string>
+    <string name="cart_empty_title">Giỏ hàng đang trống</string>
+    <string name="cart_empty_message">Khám phá sản phẩm và thêm món bạn thích vào giỏ.</string>
+    <string name="order_submitting">Đang đặt hàng…</string>
+    <string name="order_view_history">Xem lịch sử đơn</string>
+    <string name="order_retry_title">Chưa thể đặt hàng</string>
+    <string name="order_retry_message">Các sản phẩm vẫn còn trong giỏ. Bạn có thể thử lại.</string>
+    <string name="order_retry">Thử lại</string>
+    <string name="view_cart">Xem giỏ</string>
+    <string name="catalog_load_failed">Chưa thể tải sản phẩm</string>
+    <string name="catalog_empty">Danh mục chưa có sản phẩm</string>
+    <string name="catalog_retry">Thử lại</string>
 </resources>

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -100,10 +101,10 @@ public class DetailActivity extends AppCompatActivity {
         btnAddToCart.setOnClickListener(v -> {
             long rowId = dbHelper.insertCartItem(currentName, currentPrice, currentImage, selectedQuantity);
             if (rowId != -1) {
-                Toast.makeText(DetailActivity.this, getString(R.string.added_to_cart, selectedQuantity), Toast.LENGTH_SHORT).show();
-
-                Intent cartIntent = new Intent(DetailActivity.this, CartActivity.class);
-                startActivity(cartIntent);
+                Snackbar.make(btnAddToCart, getString(R.string.added_to_cart, selectedQuantity), Snackbar.LENGTH_LONG)
+                        .setAnchorView(btnAddToCart)
+                        .setAction(R.string.view_cart, view -> startActivity(new Intent(this, CartActivity.class)))
+                        .show();
             } else {
                 Toast.makeText(DetailActivity.this, getString(R.string.add_failed), Toast.LENGTH_SHORT).show();
             }
