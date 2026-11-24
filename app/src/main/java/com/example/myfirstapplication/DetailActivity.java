@@ -71,9 +71,9 @@ public class DetailActivity extends AppCompatActivity {
                 currentPrice = product.getPrice();
                 currentImage = ProductImages.forName(product.getName());
 
-                if (currentName != null) tvName.setText(currentName);
+                if (currentName != null) tvName.setText(ProductLocalization.getLocalizedName(this, currentName));
                 tvPrice.setText(getString(R.string.price_fmt, currentPrice));
-                if (product.getDescription() != null) tvDesc.setText(product.getDescription());
+                tvDesc.setText(ProductLocalization.getLocalizedDescription(this, currentName, product.getDescription()));
                 imgDetail.setImageResource(currentImage);
                 findViewById(R.id.panelProduct).setBackgroundTintList(ColorStateList.valueOf(
                         ContextCompat.getColor(this, ProductImages.tintFor(currentName))));

@@ -156,7 +156,12 @@ public class MainActivity extends AppCompatActivity {
         } else {
             String lowerKeyword = keyword.toLowerCase().trim();
             for (Product product : productList) {
-                if (product.getName() != null && product.getName().toLowerCase().contains(lowerKeyword)) {
+                String rawName = product.getName() != null ? product.getName().toLowerCase() : "";
+                String locName = ProductLocalization.getLocalizedName(this, product.getName()).toLowerCase();
+                String rawDesc = product.getDescription() != null ? product.getDescription().toLowerCase() : "";
+                String locDesc = ProductLocalization.getLocalizedDescription(this, product.getName(), product.getDescription()).toLowerCase();
+                if (rawName.contains(lowerKeyword) || locName.contains(lowerKeyword)
+                        || rawDesc.contains(lowerKeyword) || locDesc.contains(lowerKeyword)) {
                     resultList.add(product);
                 }
             }

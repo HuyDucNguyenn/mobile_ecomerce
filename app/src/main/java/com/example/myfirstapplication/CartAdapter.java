@@ -60,11 +60,12 @@ public class CartAdapter extends BaseAdapter {
         }
 
         CartItem item = cartList.get(position);
+        Context ctx = convertView.getContext();
 
         holder.img.setImageResource(ProductImages.forName(item.getName()));
-        holder.tvName.setText(item.getName());
-        holder.tvQuantity.setText(convertView.getContext().getString(R.string.cart_item_qty, item.getQuantity()));
-        holder.tvPrice.setText(convertView.getContext().getString(R.string.price_fmt, item.getPrice() * item.getQuantity()));
+        holder.tvName.setText(ProductLocalization.getLocalizedName(ctx, item.getName()));
+        holder.tvQuantity.setText(ctx.getString(R.string.cart_item_qty, item.getQuantity()));
+        holder.tvPrice.setText(ctx.getString(R.string.price_fmt, item.getPrice() * item.getQuantity()));
 
         holder.btnDelete.setOnClickListener(v -> {
             if (listener != null) listener.onItemDeleted(item.getId());

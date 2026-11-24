@@ -109,4 +109,22 @@
     <string name="catalog_load_failed">Could not load products</string>
     <string name="catalog_empty">No products in the catalog yet</string>
     <string name="catalog_retry">Try again</string>
+    <string name="prod_name_iphone15pro">Apple iPhone 15 Pro</string>
+    <string name="prod_desc_iphone15pro">128GB, Natural Titanium, 120Hz ProMotion display</string>
+    <string name="prod_name_s24ultra">Samsung Galaxy S24 Ultra</string>
+    <string name="prod_desc_s24ultra">256GB, Smart S-Pen, 200MP camera</string>
+    <string name="prod_name_s24">Samsung Galaxy S24</string>
+    <string name="prod_desc_s24">256GB, 120Hz display</string>
+    <string name="prod_name_macbook">MacBook Air M2</string>
+    <string name="prod_desc_macbook">8GB RAM, 256GB SSD, Sharp Liquid Retina display</string>
+    <string name="prod_name_sony_headphones">Sony WH-1000XM5 Headphones</string>
+    <string name="prod_desc_sony_headphones">Industry-leading ANC, 30-hour battery life</string>
+    <string name="prod_name_ipad">iPad Air 5 M1</string>
+    <string name="prod_desc_ipad">64GB WiFi, 10.9-inch display, Apple M1 chip</string>
+    <string name="prod_name_mouse">Logitech MX Master 3S Mouse</string>
+    <string name="prod_desc_mouse">8K DPI sensor, Magspeed electromagnetic scrolling</string>
+    <string name="prod_name_keyboard">Keychron K2 Mechanical Keyboard</string>
+    <string name="prod_desc_keyboard">Gateron Brown Switch, Bluetooth 5.1 connection</string>
+    <string name="prod_name_watch">Apple Watch Series 9</string>
+    <string name="prod_desc_watch">41mm Aluminum, Always-On bright display</string>
 </resources>

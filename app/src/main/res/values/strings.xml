@@ -111,4 +111,22 @@
     <string name="catalog_load_failed">Chưa thể tải sản phẩm</string>
     <string name="catalog_empty">Danh mục chưa có sản phẩm</string>
     <string name="catalog_retry">Thử lại</string>
+    <string name="prod_name_iphone15pro">Apple iPhone 15 Pro</string>
+    <string name="prod_desc_iphone15pro">128GB, Titan tự nhiên, Màn hình 120Hz ProMotion</string>
+    <string name="prod_name_s24ultra">Samsung Galaxy S24 Ultra</string>
+    <string name="prod_desc_s24ultra">256GB, Bút S-Pen thông minh, Camera 200MP</string>
+    <string name="prod_name_s24">Samsung Galaxy S24</string>
+    <string name="prod_desc_s24">256GB, Màn hình 120Hz</string>
+    <string name="prod_name_macbook">MacBook Air M2</string>
+    <string name="prod_desc_macbook">8GB RAM, 256GB SSD, Màn Liquid Retina sắc nét</string>
+    <string name="prod_name_sony_headphones">Tai nghe Sony WH-1000XM5</string>
+    <string name="prod_desc_sony_headphones">Chống ồn chủ động đỉnh cao, Thời lượng pin 30h</string>
+    <string name="prod_name_ipad">iPad Air 5 M1</string>
+    <string name="prod_desc_ipad">WiFi 64GB, Màn hình 10.9 inch, Chip Apple M1</string>
+    <string name="prod_name_mouse">Chuột Logitech MX Master 3S</string>
+    <string name="prod_desc_mouse">Cảm biến 8K DPI, Cuộn siêu tốc Magspeed</string>
+    <string name="prod_name_keyboard">Bàn phím cơ Keychron K2</string>
+    <string name="prod_desc_keyboard">Gateron Brown Switch, Kết nối Bluetooth 5.1</string>
+    <string name="prod_name_watch">Đồng hồ Apple Watch Series 9</string>
+    <string name="prod_desc_watch">Nhôm 41mm, Màn hình Always-On sáng rực rỡ</string>
 </resources>

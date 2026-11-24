@@ -67,9 +67,10 @@ public class ProductAdapter extends BaseAdapter {
         }
 
         Product product = productList.get(position);
-        holder.tvProductName.setText(product.getName());
-        holder.tvProductPrice.setText(convertView.getContext().getString(R.string.price_fmt, product.getPrice()));
-        holder.tvProductDesc.setText(product.getDescription());
+        Context ctx = convertView.getContext();
+        holder.tvProductName.setText(ProductLocalization.getLocalizedName(ctx, product.getName()));
+        holder.tvProductPrice.setText(ctx.getString(R.string.price_fmt, product.getPrice()));
+        holder.tvProductDesc.setText(ProductLocalization.getLocalizedDescription(ctx, product.getName(), product.getDescription()));
         holder.imgProduct.setImageResource(product.getImageResId());
         holder.btnQuickAdd.setOnClickListener(v -> {
             int image = product.getImageResId() != 0 ? product.getImageResId() : R.drawable.ic_product_placeholder;

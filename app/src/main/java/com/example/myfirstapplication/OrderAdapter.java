@@ -67,7 +67,8 @@ public class OrderAdapter extends BaseAdapter {
         StringBuilder productsBuilder = new StringBuilder();
         if (order.getItems() != null && !order.getItems().isEmpty()) {
             for (CartItem item : order.getItems()) {
-                productsBuilder.append(ctx.getString(R.string.order_item_line, item.getName(), item.getQuantity(),
+                String localizedName = ProductLocalization.getLocalizedName(ctx, item.getName());
+                productsBuilder.append(ctx.getString(R.string.order_item_line, localizedName, item.getQuantity(),
                         ctx.getString(R.string.price_fmt, item.getPrice() * item.getQuantity()))).append('\n');
             }
             if (productsBuilder.length() > 0 && productsBuilder.charAt(productsBuilder.length() - 1) == '\n') {
