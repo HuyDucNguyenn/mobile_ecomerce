@@ -34,4 +34,16 @@ public final class ProductLocalization {
         if (s.contains("watch") || s.contains("đồng hồ")) return context.getString(R.string.prod_desc_watch);
         return defaultDesc != null ? defaultDesc : "";
     }
+
+    public static String getLocalizedOrderStatus(Context context, String status) {
+        if (context == null) return status != null ? status : "";
+        if (status == null || status.trim().isEmpty()) {
+            return context.getString(R.string.order_status_default);
+        }
+        String s = status.toLowerCase().trim();
+        if (s.contains("thành công") || s.contains("success") || s.contains("đặt hàng") || s.contains("ordered") || s.contains("placed")) {
+            return context.getString(R.string.order_status_success);
+        }
+        return status;
+    }
 }

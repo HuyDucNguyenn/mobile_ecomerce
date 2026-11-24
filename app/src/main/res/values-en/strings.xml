@@ -41,6 +41,7 @@
     <string name="order_date">Ordered: %1$s</string>
     <string name="order_date_unknown">Unknown</string>
     <string name="order_status_default">Ordered</string>
+    <string name="order_status_success">Order successful</string>
     <string name="order_item_line">• %1$s - Quantity: %2$d (%3$s)</string>
     <string name="order_no_items">No items</string>
     <string name="main_welcome">Hello, %1$s!</string>

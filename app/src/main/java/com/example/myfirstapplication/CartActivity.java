@@ -128,7 +128,7 @@ public class CartActivity extends AppCompatActivity {
                 orderDate,
                 currentTotal,
                 orderedItems,
-                "Đặt hàng thành công"
+                getString(R.string.order_status_success)
         );
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -61,7 +61,7 @@ public class OrderAdapter extends BaseAdapter {
         Context ctx = convertView.getContext();
 
         holder.tvOrderDate.setText(ctx.getString(R.string.order_date, order.getOrderDate() != null ? order.getOrderDate() : ctx.getString(R.string.order_date_unknown)));
-        holder.tvOrderStatus.setText(order.getStatus() != null ? order.getStatus() : ctx.getString(R.string.order_status_default));
+        holder.tvOrderStatus.setText(ProductLocalization.getLocalizedOrderStatus(ctx, order.getStatus()));
         holder.tvOrderTotalPrice.setText(ctx.getString(R.string.price_fmt, order.getTotalPrice()));
 
         StringBuilder productsBuilder = new StringBuilder();
